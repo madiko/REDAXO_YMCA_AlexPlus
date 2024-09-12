@@ -8,15 +8,17 @@ class Docs
     {
         return str_replace(' ', '', ucwords(str_replace('_', ' ', $input)));
     }
+
     public static function toClassName($input)
     {
         return str_replace('rex_', '', $input);
     }
+
     public static function getTypeTemplate($type_name)
     {
         $typeTemplates =
         [
-        'value' => '
+            'value' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -38,7 +40,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'checkbox' => '
+            'checkbox' => '
 ### `get%2$s(bool $asBool = false)`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -60,7 +62,7 @@ $dataset->set%2$s(1);
 $dataset->save();
 ```
 ',
-        'textarea' => '
+            'textarea' => '
 ### `get%2$s(bool $asPlaintext = false)`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -82,7 +84,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'datetime' => '
+            'datetime' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -104,7 +106,7 @@ $dataset->set%2$s($datetime);
 $dataset->save();
 ```
 ',
-        'be_media' => '
+            'be_media' => '
 ### `get%2$s(bool $asMedia = false)`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -126,7 +128,7 @@ $dataset->set%2$s($filename);
 $dataset->save();
 ```
 ',
-        'be_table' => '
+            'be_table' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -148,7 +150,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'datestamp' => '
+            'datestamp' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -170,7 +172,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'int' => '
+            'int' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -192,7 +194,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'number' => '
+            'number' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -214,7 +216,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'prio' => '
+            'prio' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -236,7 +238,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'time' => '
+            'time' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -258,7 +260,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'domain' => '
+            'domain' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -280,7 +282,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'be_user' => '
+            'be_user' => '
 ### `get%2$s()`
 
 Gibt folgenden Wert
@@ -306,7 +308,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'be_link' => '
+            'be_link' => '
 ### `get%2$s(bool $asArticle = false)`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -328,7 +330,7 @@ $dataset->set%2$s($id);
 $dataset->save();
 ```
 ',
-        'relation' => '
+            'relation' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -350,7 +352,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'collection' => '
+            'collection' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -372,7 +374,7 @@ $dataset->set%2$s($value);
 $dataset->save();
 ```
 ',
-        'choice' => '
+            'choice' => '
 ### `get%2$s()`
 
 Gibt den Wert für das Feld `%3$s` (%4$s) zurück: %5$s
@@ -398,6 +400,4 @@ $dataset->save();
 
         return $typeTemplates[$type_name] ?? '';
     }
-
-
 }

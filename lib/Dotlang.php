@@ -8,10 +8,12 @@ class Dotlang
     {
         return str_replace(' ', '', ucwords(str_replace('_', ' ', $input)));
     }
+
     public static function toClassName($input)
     {
         return str_replace('rex_', '', $input);
     }
+
     public static function getTypeTemplate($type_name)
     {
         $typeTemplates =
@@ -22,6 +24,4 @@ class Dotlang
 
         return $typeTemplates[$type_name] ?? '';
     }
-
-
 }

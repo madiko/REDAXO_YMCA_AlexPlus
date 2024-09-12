@@ -8,6 +8,7 @@ class Yorm
     {
         return str_replace(' ', '', ucwords(str_replace('_', ' ', $input)));
     }
+
     public static function toClassName($input)
     {
         return str_replace('rex_', '', $input);
@@ -17,7 +18,7 @@ class Yorm
     {
         $typeTemplates =
 [
-'value' => '
+    'value' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : %2$s {
@@ -29,7 +30,7 @@ class Yorm
         return $this;
     }
 ',
-'checkbox' => '
+    'checkbox' => '
     /* %4$s */
     /** @api */
     public function get%1$s(bool $asBool = false) : mixed {
@@ -44,7 +45,7 @@ class Yorm
         return $this;
     }
             ',
-'textarea' => '
+    'textarea' => '
     /* %4$s */
     /** @api */
     public function get%1$s(bool $asPlaintext = false) : %2$s {
@@ -59,7 +60,7 @@ class Yorm
         return $this;
     }
             ',
-'datetime' => '
+    'datetime' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?string {
@@ -71,7 +72,7 @@ class Yorm
         return $this;
     }
             ',
-'be_media' => '
+    'be_media' => '
     /* %4$s */
     /** @api */
     public function get%1$s(bool $asMedia = false) : mixed {
@@ -88,7 +89,7 @@ class Yorm
         return $this;
     }
             ',
-'be_table' => '
+    'be_table' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?array {
@@ -103,7 +104,7 @@ class Yorm
         return $this;
     }
             ',
-'datestamp' => '
+    'datestamp' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?string {
@@ -115,7 +116,7 @@ class Yorm
         return $this;
     }
 ',
-'int' => '
+    'int' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?int {
@@ -127,7 +128,7 @@ class Yorm
         return $this;
     }
 ',
-'number' => '
+    'number' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?float {
@@ -139,7 +140,7 @@ class Yorm
         return $this;
     }
             ',
-'prio' => '
+    'prio' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?int {
@@ -151,7 +152,7 @@ class Yorm
         return $this;
     }
             ',
-'time' => '
+    'time' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : string {
@@ -163,7 +164,7 @@ class Yorm
         return $this;
     }
             ',
-'domain' => '
+    'domain' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?yrewrite_domain {
@@ -179,7 +180,7 @@ class Yorm
         return $this;
     }
 ',
-'be_user' => '
+    'be_user' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?rex_user {
@@ -191,7 +192,7 @@ class Yorm
         return $this;
     }
 ',
-'be_link' => '
+    'be_link' => '
     /* %4$s */
     /** @api */
     public function get%1$s(bool $asArticle = false) : ?rex_article {
@@ -213,20 +214,20 @@ class Yorm
         return $this;
     }
 ',
-'relation' => '
+    'relation' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : ?rex_yform_manager_dataset {
         return $this->getRelatedDataset("%3$s");
     }
 ',
-'collection' => '
+    'collection' => '
     /** @api */
     public function get%1$s() : ?rex_yform_manager_collection {
         return $this->getRelatedCollection("%3$s");
     }
 ',
-'choice' => '
+    'choice' => '
     /* %4$s */
     /** @api */
     public function get%1$s() : mixed {
@@ -242,5 +243,4 @@ class Yorm
 
         return $typeTemplates[$type_name] ?? '';
     }
-
 }
